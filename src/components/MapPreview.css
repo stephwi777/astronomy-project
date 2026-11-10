@@ -2,7 +2,8 @@
 
 .ground {
   position: relative;
-  background: var(--horizon);
+  margin-top: -1px;
+  background: linear-gradient(var(--horizon) 90%, var(--snow) 90%);
 }
 
 .hills {
@@ -10,6 +11,7 @@
   width: 100%;
   height: clamp(70px, 10vw, 140px);
   margin-bottom: -1px;
+  overflow: visible;
 }
 
 .tree {

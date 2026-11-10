@@ -82,6 +82,46 @@
 
 
 
+/* SMALL SCREENS */
+
+@media (max-width: 640px) {
+  .events {
+    gap: 4px;
+  }
+
+  .events li {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    grid-template-areas:
+      "time text"
+      "soon text";
+    column-gap: 16px;
+    align-content: start;
+    padding: 14px 0;
+  }
+
+  .countdown {
+    display: none;
+  }
+
+  .events time {
+    grid-area: time;
+    font-size: 1.6rem;
+    line-height: 1.1;
+  }
+
+  .events .soon {
+    grid-area: soon;
+    font-size: 0.85rem;
+  }
+
+  .events li > p:last-child {
+    grid-area: text;
+  }
+}
+
+
+
 /* REDUCED MOTION */
 
 @media (prefers-reduced-motion: reduce) {

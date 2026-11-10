@@ -154,6 +154,18 @@ nav a:hover {
 
   .location {
     margin-left: auto;
+    padding: 10px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    gap: 8px;
+    font-size: 1.6rem;
+  }
+
+  .logo svg {
+    width: 40px;
   }
 }
 

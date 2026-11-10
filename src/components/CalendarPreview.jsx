@@ -39,7 +39,7 @@ function CalendarPreview() {
   return (
     <div className="horizon">
       <svg className="edge" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 70 C 300 30, 700 80, 1000 40 S 1300 50, 1440 30 L 1440 90 L 0 90 Z" fill="var(--horizon)" />
+        <path d="M0 70 C 300 30, 700 80, 1000 40 S 1300 50, 1440 30 L 1440 100 L 0 100 Z" fill="var(--horizon)" />
       </svg>
 
       <section id="calendar">

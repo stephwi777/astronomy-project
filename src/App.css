@@ -16,6 +16,7 @@ section {
   width: 100%;
   height: clamp(40px, 7vw, 90px);
   margin-bottom: -1px;
+  overflow: visible;
 }
 
 .intro {

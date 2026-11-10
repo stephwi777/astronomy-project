@@ -24,7 +24,7 @@ function TonightPreview() {
   return (
     <>
       <svg className="edge" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 60 C 360 10, 1080 10, 1440 60 L 1440 90 L 0 90 Z" fill="var(--high)" />
+        <path d="M0 60 C 360 10, 1080 10, 1440 60 L 1440 100 L 0 100 Z" fill="var(--high)" />
       </svg>
 
       <section id="when">

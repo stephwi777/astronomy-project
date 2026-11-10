@@ -22,8 +22,8 @@ function MapPreview() {
     <>
       <div className="ground" aria-hidden="true">
         <svg className="hills" viewBox="0 0 1440 140" preserveAspectRatio="none">
-          <path d="M0 80 C 200 40, 420 60, 640 70 S 1100 30, 1440 60 L 1440 140 L 0 140 Z" fill="var(--far-hills)" />
-          <path d="M0 110 C 400 60, 900 70, 1440 100 L 1440 140 L 0 140 Z" fill="var(--snow)" />
+          <path d="M0 80 C 200 40, 420 60, 640 70 S 1100 30, 1440 60 L 1440 160 L 0 160 Z" fill="var(--far-hills)" />
+          <path d="M0 110 C 400 60, 900 70, 1440 100 L 1440 160 L 0 160 Z" fill="var(--snow)" />
         </svg>
 
         <svg className="tree" viewBox="0 0 60 100">

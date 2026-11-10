@@ -4,13 +4,19 @@ import './Aurora.css'
 
 // CURTAIN
 
-const folds = [0, 720, 1440, 2160]
+function curtain(folds) {
+  const width = 2880 / folds
+  const starts = Array.from({ length: folds }, (_, i) => i * width)
 
-const edge = 'M0 150 ' + folds.map(x => `C${x + 120} 150, ${x + 200} 95, ${x + 360} 105 C${x + 520} 115, ${x + 600} 150, ${x + 720} 150`).join(' ')
+  const edge = 'M0 150 ' + starts.map(x => `C${x + width / 6} 150, ${x + width * 0.28} 95, ${x + width / 2} 105 C${x + width * 0.72} 115, ${x + width * 5 / 6} 150, ${x + width} 150`).join(' ')
 
-const top = [...folds].reverse().map(x => `C${x + 600} 70, ${x + 520} 35, ${x + 360} 25 C${x + 200} 15, ${x + 120} 70, ${x} 70`).join(' ')
+  const top = [...starts].reverse().map(x => `C${x + width * 5 / 6} 70, ${x + width * 0.72} 35, ${x + width / 2} 25 C${x + width * 0.28} 15, ${x + width / 6} 70, ${x} 70`).join(' ')
 
-const curtain = `${edge} L2880 70 ${top} Z`
+  return { edge, shape: `${edge} L2880 70 ${top} Z` }
+}
+
+const teal = curtain(4)
+const violet = curtain(6)
 
 
 
@@ -26,7 +32,7 @@ function Aurora() {
             <stop offset="1" stopColor="#8f86d6" stopOpacity="0.3" />
           </linearGradient>
         </defs>
-        <path d={curtain} fill="url(#violet-glow)" />
+        <path d={violet.shape} fill="url(#violet-glow)" />
       </svg>
 
       <svg viewBox="0 0 2880 200" preserveAspectRatio="none">
@@ -37,8 +43,8 @@ function Aurora() {
             <stop offset="1" stopColor="var(--teal)" stopOpacity="0.45" />
           </linearGradient>
         </defs>
-        <path d={curtain} fill="url(#teal-glow)" />
-        <path d={edge} fill="none" stroke="var(--teal)" strokeWidth="2" opacity="0.5" vectorEffect="non-scaling-stroke" />
+        <path d={teal.shape} fill="url(#teal-glow)" />
+        <path d={teal.edge} fill="none" stroke="var(--teal)" strokeWidth="2" opacity="0.5" vectorEffect="non-scaling-stroke" />
       </svg>
     </div>
   )
