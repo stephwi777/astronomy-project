@@ -14,7 +14,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 200%;
+  width: 4320px;
   max-width: none;
   height: 100%;
   animation: flow 70s linear infinite;
@@ -28,7 +28,7 @@
 
 @keyframes flow {
   to {
-    transform: translateX(-50%);
+    transform: translateX(-1440px);
   }
 }
 
@@ -44,6 +44,20 @@
   to {
     translate: 0 10px;
     scale: 1 1.15;
+  }
+}
+
+
+
+/* WIDE SCREENS */
+
+@media (min-width: 1300px) {
+  .aurora {
+    left: 50%;
+    right: auto;
+    width: 1300px;
+    transform: translateX(-50%);
+    mask-image: linear-gradient(to right, transparent, black 30%, black 70%, transparent);
   }
 }
 
