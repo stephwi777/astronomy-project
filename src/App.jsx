@@ -1,4 +1,5 @@
 import Stars from './components/Stars.jsx'
+import Meteors from './components/Meteors.jsx'
 import Header from './components/Header.jsx'
 import Hero from './components/Hero.jsx'
 import TonightPreview from './components/TonightPreview.jsx'
@@ -23,6 +24,7 @@ function App() {
       <main>
         <div className="sky">
           <Stars />
+          <Meteors />
           <Hero />
           <TonightPreview />
         </div>

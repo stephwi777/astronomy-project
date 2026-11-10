@@ -1,0 +1,171 @@
+/* METEORS */
+
+.meteors {
+  position: absolute;
+  inset: 0 0 auto;
+  height: min(100vh, 900px);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.meteor {
+  --duration: 1.3s;
+  --distance: 320px;
+  position: absolute;
+  transform: rotate(155deg);
+}
+
+
+
+/* FLIGHT */
+
+.flight {
+  position: absolute;
+  opacity: 0;
+  animation: fly var(--duration) ease-in forwards;
+}
+
+.tail {
+  position: absolute;
+  right: 0;
+  top: -1px;
+  width: 140px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(to right, transparent, var(--tail) 55%, var(--head));
+  transform-origin: right;
+  animation: stretch var(--duration) ease-out forwards;
+}
+
+.head {
+  position: absolute;
+  top: -2.5px;
+  left: -2.5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--head);
+  animation: flicker 0.25s ease-in-out infinite alternate;
+}
+
+@keyframes fly {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  12% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(var(--distance));
+  }
+}
+
+@keyframes stretch {
+  0% {
+    transform: scaleX(0);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0.35);
+  }
+}
+
+@keyframes flicker {
+  to {
+    box-shadow: 0 0 8px 2px var(--head);
+  }
+}
+
+
+
+/* SPARKS */
+
+.spark {
+  position: absolute;
+  top: -2px;
+  left: calc(var(--distance) * 0.78);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--head);
+  opacity: 0;
+  animation: burst 0.8s ease-out forwards;
+  animation-delay: calc(var(--duration) * 0.85);
+}
+
+@keyframes burst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--x), var(--y)) scale(0.4);
+  }
+}
+
+
+
+/* COMET */
+
+.comet {
+  --duration: 3.4s;
+  --distance: 360px;
+}
+
+.comet .flight {
+  animation-timing-function: linear;
+}
+
+.comet .tail {
+  width: 240px;
+  height: 3px;
+  top: -1.5px;
+}
+
+.comet .head {
+  top: -3.5px;
+  left: -3.5px;
+  width: 7px;
+  height: 7px;
+}
+
+.glitter {
+  position: absolute;
+  top: -1.5px;
+  left: calc(var(--distance) * var(--when) - 30px);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--head);
+  opacity: 0;
+  animation: glitter 1.8s ease-out forwards;
+  animation-delay: calc(var(--duration) * var(--when));
+}
+
+@keyframes glitter {
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .meteors {
+    display: none;
+  }
+}
