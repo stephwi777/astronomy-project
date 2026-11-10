@@ -1,3 +1,5 @@
+import useInView from '../hooks/useInView.js'
+import Aurora from './Aurora.jsx'
 import './TonightPreview.css'
 
 
@@ -10,11 +12,15 @@ const rows = [
   { name: 'Saturn', note: 'Dusk until 1:10am', from: 0.094, to: 0.573, color: 'var(--snow)' },
 ]
 
+const now = { label: '9:15pm', at: 0.328 }
+
 
 
 // TONIGHT PREVIEW
 
 function TonightPreview() {
+  const [ref, inView] = useInView()
+
   return (
     <>
       <svg className="edge" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
@@ -22,9 +28,7 @@ function TonightPreview() {
       </svg>
 
       <section id="when">
-        <svg className="aurora" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0 120 C 240 40, 480 150, 760 80 S 1200 30, 1440 90 L 1440 130 C 1200 70, 1000 150, 760 120 S 260 90, 0 160 Z" fill="var(--teal)" opacity="0.16" />
-        </svg>
+        <Aurora />
 
         <div className="inner">
           <div>
@@ -33,19 +37,27 @@ function TonightPreview() {
             <a className="action" href="tonight">Open tonight's timeline</a>
           </div>
 
-          <ul className="preview">
-            {rows.map(row => (
-              <li key={row.name}>
-                <p>
-                  <strong>{row.name}</strong>
-                  {row.note}
-                </p>
-                <div className="track" aria-hidden="true">
-                  <span style={{ left: `${row.from * 100}%`, right: `${(1 - row.to) * 100}%`, background: row.color }}></span>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <div ref={ref} className={inView ? 'preview shown' : 'preview'}>
+            <ul>
+              {rows.map((row, i) => (
+                <li key={row.name}>
+                  <p>
+                    <strong>{row.name}</strong>
+                    {row.note}
+                  </p>
+                  <div className="track" aria-hidden="true">
+                    <span
+                      className="range"
+                      style={{ left: `${row.from * 100}%`, right: `${(1 - row.to) * 100}%`, background: row.color, '--i': i }}
+                    ></span>
+                    <span className="now" style={{ left: `${now.at * 100}%` }}></span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <p className="now-label"><span></span>Now, {now.label}</p>
+          </div>
         </div>
       </section>
     </>

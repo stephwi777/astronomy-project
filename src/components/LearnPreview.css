@@ -34,6 +34,30 @@
   margin-bottom: 16px;
 }
 
+.constellation circle {
+  opacity: 0;
+  transform: scale(0.3);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 0.5s, transform 0.5s cubic-bezier(0.3, 1.6, 0.5, 1);
+  transition-delay: calc(var(--i) * 0.25s);
+}
+
+.shown circle {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.constellation polyline {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.6s ease-in-out 1.3s;
+}
+
+.shown polyline {
+  stroke-dashoffset: 0;
+}
+
 
 
 /* SMALL SCREENS */
@@ -46,5 +70,16 @@
 
   .constellation {
     order: 2;
+  }
+}
+
+
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .constellation circle,
+  .constellation polyline {
+    transition: none;
   }
 }

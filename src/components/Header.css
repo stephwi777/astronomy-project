@@ -35,7 +35,57 @@
 }
 
 .logo svg {
-  width: 40px;
+  width: 48px;
+  overflow: visible;
+}
+
+.logo .bird,
+.logo .badge-star {
+  transform-box: fill-box;
+}
+
+.logo .bird {
+  transform-origin: 50% 100%;
+}
+
+.logo .badge-star {
+  transform-origin: center;
+  animation: glimmer 4s ease-in-out infinite;
+}
+
+.logo:hover .bird,
+.logo:focus-visible .bird {
+  animation: hop 0.6s ease-out;
+}
+
+.logo:hover .badge-star,
+.logo:focus-visible .badge-star {
+  animation: pop 0.7s ease-out;
+}
+
+@keyframes glimmer {
+  50% {
+    transform: scale(0.82) rotate(15deg);
+    opacity: 0.85;
+  }
+}
+
+@keyframes hop {
+  35% {
+    transform: translateY(-3px) rotate(-5deg);
+  }
+  70% {
+    transform: translateY(0) rotate(-2deg);
+  }
+}
+
+@keyframes pop {
+  40% {
+    transform: scale(1.4) rotate(60deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
 }
 
 
@@ -114,5 +164,10 @@ nav a:hover {
 @media (prefers-reduced-motion: reduce) {
   .header {
     transition: none;
+  }
+
+  .logo .bird,
+  .logo .badge-star {
+    animation: none !important;
   }
 }

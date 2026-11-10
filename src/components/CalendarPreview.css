@@ -30,15 +30,6 @@
   margin-bottom: 36px;
 }
 
-.events li::before {
-  content: '';
-  display: block;
-  height: 6px;
-  margin-bottom: 16px;
-  border-radius: 6px;
-  background: linear-gradient(to right, var(--bronze) 18px, var(--far-hills) 18px);
-}
-
 .events time {
   display: block;
   font-family: var(--font-display);
@@ -53,4 +44,48 @@
   display: block;
   color: var(--frost);
   font-weight: 600;
+}
+
+
+
+/* COUNTDOWN */
+
+.countdown {
+  display: block;
+  height: 6px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  background: var(--far-hills);
+  overflow: hidden;
+}
+
+.countdown span {
+  display: block;
+  height: 100%;
+  border-radius: 6px;
+  background: var(--bronze);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.2s cubic-bezier(0.3, 0.7, 0.2, 1);
+  transition-delay: calc(var(--i) * 0.15s);
+}
+
+.shown .countdown span {
+  transform: scaleX(var(--fill));
+}
+
+.events .soon {
+  color: var(--bronze);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .countdown span {
+    transition: none;
+  }
 }

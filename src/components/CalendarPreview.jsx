@@ -1,3 +1,4 @@
+import useInView from '../hooks/useInView.js'
 import './CalendarPreview.css'
 
 
@@ -12,9 +13,29 @@ const events = [
 
 
 
+// COUNTDOWN
+
+function daysUntil(date) {
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+
+  return Math.round((new Date(`${date}T00:00`) - today) / 86400000)
+}
+
+function describe(days) {
+  if (days < 0) return 'Already passed'
+  if (days === 0) return 'Tonight'
+  if (days === 1) return 'Tomorrow'
+  return `In ${days} days`
+}
+
+
+
 // CALENDAR PREVIEW
 
 function CalendarPreview() {
+  const [ref, inView] = useInView()
+
   return (
     <div className="horizon">
       <svg className="edge" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
@@ -26,16 +47,22 @@ function CalendarPreview() {
           <h2>Never miss a meteor shower</h2>
           <p className="intro">Eclipses, full moons, meteor showers and planets meeting up, all in one calendar.</p>
 
-          <ol className="events">
-            {events.map(event => (
-              <li key={event.date}>
-                <time dateTime={event.date}>{event.label}</time>
-                <p>
-                  <strong>{event.name}</strong>
-                  {event.note}
-                </p>
-              </li>
-            ))}
+          <ol ref={ref} className={inView ? 'events shown' : 'events'}>
+            {events.map((event, i) => {
+              const days = daysUntil(event.date)
+
+              return (
+                <li key={event.date} style={{ '--fill': Math.max(0.06, 1 - days / 30), '--i': i }}>
+                  <span className="countdown" aria-hidden="true"><span></span></span>
+                  <p className="soon">{describe(days)}</p>
+                  <time dateTime={event.date}>{event.label}</time>
+                  <p>
+                    <strong>{event.name}</strong>
+                    {event.note}
+                  </p>
+                </li>
+              )
+            })}
           </ol>
 
           <a className="action" href="calendar">See the full calendar</a>

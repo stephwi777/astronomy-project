@@ -1,3 +1,4 @@
+import useInView from '../hooks/useInView.js'
 import './LearnPreview.css'
 
 
@@ -17,21 +18,24 @@ const cassiopeia = [
 // LEARN PREVIEW
 
 function LearnPreview() {
+  const [ref, inView] = useInView()
+
   return (
     <section id="learn">
       <div className="inner">
-        <div className="constellation">
+        <div ref={ref} className={inView ? 'constellation shown' : 'constellation'}>
           <svg viewBox="0 0 300 140" aria-hidden="true">
             <polyline
               points={cassiopeia.map(star => `${star.x},${star.y}`).join(' ')}
+              pathLength="1"
               fill="none"
               stroke="var(--snow-shade)"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-            {cassiopeia.map(star => (
-              <circle key={star.x} cx={star.x} cy={star.y} r={star.r} fill="var(--frost)" />
+            {cassiopeia.map((star, i) => (
+              <circle key={star.x} cx={star.x} cy={star.y} r={star.r} fill="var(--frost)" style={{ '--i': i }} />
             ))}
           </svg>
           <p>This month: find Cassiopeia's W high in the north.</p>

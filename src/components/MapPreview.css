@@ -52,6 +52,15 @@
   padding: 18px 24px;
   border-radius: 22px;
   background: var(--snow-shade);
+  opacity: 0;
+  transform: translateX(16px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  transition-delay: calc(var(--i) * 0.12s);
+}
+
+.places.shown li {
+  opacity: 1;
+  transform: none;
 }
 
 .places small {
@@ -73,5 +82,15 @@
   #map .inner {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+}
+
+
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .places li {
+    transition: none;
   }
 }

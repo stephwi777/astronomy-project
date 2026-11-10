@@ -1,3 +1,4 @@
+import useInView from '../hooks/useInView.js'
 import './MapPreview.css'
 
 
@@ -15,6 +16,8 @@ const places = [
 // MAP PREVIEW
 
 function MapPreview() {
+  const [ref, inView] = useInView()
+
   return (
     <>
       <div className="ground" aria-hidden="true">
@@ -36,9 +39,9 @@ function MapPreview() {
             <a className="action" href="map">Open the map</a>
           </div>
 
-          <ul className="places">
-            {places.map(place => (
-              <li key={place.name}>
+          <ul ref={ref} className={inView ? 'places shown' : 'places'}>
+            {places.map((place, i) => (
+              <li key={place.name} style={{ '--i': i }}>
                 <span>
                   {place.name}
                   <small>{place.note}</small>

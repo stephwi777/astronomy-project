@@ -1,0 +1,59 @@
+/* AURORA */
+
+.aurora {
+  position: absolute;
+  top: -90px;
+  left: 0;
+  right: 0;
+  height: 170px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aurora svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  max-width: none;
+  height: 100%;
+  animation: flow 70s linear infinite;
+}
+
+.aurora svg:first-child {
+  top: -24px;
+  animation-duration: 110s;
+  animation-direction: reverse;
+}
+
+@keyframes flow {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+/* RISE AND FALL */
+
+.aurora svg:last-child {
+  animation: flow 70s linear infinite, breathe 9s ease-in-out infinite alternate;
+}
+
+@keyframes breathe {
+  to {
+    translate: 0 10px;
+    scale: 1 1.15;
+  }
+}
+
+
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora svg,
+  .aurora svg:last-child {
+    animation: none;
+  }
+}
