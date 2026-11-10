@@ -1,0 +1,77 @@
+/* GROUND */
+
+.ground {
+  position: relative;
+  background: var(--horizon);
+}
+
+.hills {
+  display: block;
+  width: 100%;
+  height: clamp(70px, 10vw, 140px);
+  margin-bottom: -1px;
+}
+
+.tree {
+  position: absolute;
+  right: 18%;
+  bottom: 6%;
+  width: clamp(36px, 4.5vw, 64px);
+}
+
+
+
+/* MAP PREVIEW */
+
+#map {
+  padding-top: 16px;
+  padding-bottom: 72px;
+}
+
+#map .inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 56px;
+  align-items: center;
+}
+
+#map .action {
+  background: var(--ink);
+  color: var(--snow);
+}
+
+
+
+/* PLACES */
+
+.places li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+  padding: 18px 24px;
+  border-radius: 22px;
+  background: var(--snow-shade);
+}
+
+.places small {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.distance {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  white-space: nowrap;
+}
+
+
+
+/* SMALL SCREENS */
+
+@media (max-width: 860px) {
+  #map .inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}

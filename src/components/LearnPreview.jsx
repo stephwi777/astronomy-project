@@ -1,0 +1,50 @@
+import './LearnPreview.css'
+
+
+
+// STARS OF CASSIOPEIA
+
+const cassiopeia = [
+  { x: 20, y: 40, r: 6 },
+  { x: 90, y: 100, r: 7 },
+  { x: 150, y: 50, r: 6 },
+  { x: 210, y: 105, r: 5 },
+  { x: 280, y: 30, r: 6 },
+]
+
+
+
+// LEARN PREVIEW
+
+function LearnPreview() {
+  return (
+    <section id="learn">
+      <div className="inner">
+        <div className="constellation">
+          <svg viewBox="0 0 300 140" aria-hidden="true">
+            <polyline
+              points={cassiopeia.map(star => `${star.x},${star.y}`).join(' ')}
+              fill="none"
+              stroke="var(--snow-shade)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            {cassiopeia.map(star => (
+              <circle key={star.x} cx={star.x} cy={star.y} r={star.r} fill="var(--frost)" />
+            ))}
+          </svg>
+          <p>This month: find Cassiopeia's W high in the north.</p>
+        </div>
+
+        <div>
+          <h2>Learn as you look</h2>
+          <p className="intro">Discover a new constellation each month. Check out NASA's picture of the day and friendly guides for your first nights out.</p>
+          <a className="action" href="learn">Start learning</a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default LearnPreview

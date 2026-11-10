@@ -1,0 +1,36 @@
+/* STARS */
+
+.stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  animation: twinkle ease-in-out infinite;
+}
+
+.sparkle {
+  position: absolute;
+  width: 14px;
+  animation: twinkle 7s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .star,
+  .sparkle {
+    animation: none;
+  }
+}

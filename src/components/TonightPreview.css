@@ -1,0 +1,84 @@
+/* TONIGHT PREVIEW */
+
+#when {
+  padding-top: 24px;
+  padding-bottom: 88px;
+  background: var(--high);
+}
+
+#when .inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 56px;
+  align-items: center;
+}
+
+#when h2 {
+  color: var(--teal);
+}
+
+#when .action {
+  background: var(--teal);
+  color: var(--ink);
+}
+
+.aurora {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 180px;
+}
+
+
+
+/* PREVIEW */
+
+.preview {
+  display: grid;
+  gap: 20px;
+  padding: 32px;
+  border-radius: 32px;
+  background: var(--zenith);
+}
+
+.preview p {
+  margin-bottom: 8px;
+  color: var(--mist);
+  font-size: 0.95rem;
+}
+
+.preview strong {
+  margin-right: 10px;
+  color: var(--frost);
+  font-size: 1.05rem;
+}
+
+.track {
+  position: relative;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--high);
+}
+
+.track span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 999px;
+}
+
+
+
+/* SMALL SCREENS */
+
+@media (max-width: 860px) {
+  #when .inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .preview {
+    padding: 24px;
+  }
+}

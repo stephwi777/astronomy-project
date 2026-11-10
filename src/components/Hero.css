@@ -1,0 +1,104 @@
+/* HERO */
+
+#hero {
+  padding-top: clamp(150px, 18vw, 210px);
+  padding-bottom: clamp(64px, 10vw, 140px);
+}
+
+#hero .inner {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+#hero h1 {
+  font-size: clamp(2.75rem, 5vw, 4.5rem);
+  white-space: nowrap;
+  color: var(--moon);
+}
+
+.lede {
+  max-width: 32ch;
+  margin-top: 20px;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  line-height: 1.4;
+  color: var(--mist);
+}
+
+
+
+/* ACTIONS */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+  margin-top: 36px;
+}
+
+#hero .action {
+  background: var(--beak);
+  color: var(--ink);
+}
+
+.more {
+  color: var(--frost);
+  font-weight: 600;
+  text-underline-offset: 6px;
+}
+
+
+
+/* MOON */
+
+#hero figure {
+  justify-self: center;
+  width: min(100%, 340px);
+  text-align: center;
+}
+
+figcaption {
+  margin-top: -24px;
+  color: var(--mist);
+  font-size: 1rem;
+  text-wrap: balance;
+}
+
+
+
+/* MEDIUM SCREENS */
+
+@media (max-width: 900px) {
+  #hero .inner {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  #hero h1 {
+    white-space: normal;
+  }
+
+  #hero figure {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    grid-row: 1;
+    justify-self: start;
+    width: auto;
+    margin-left: -24px;
+    text-align: left;
+  }
+
+  .moon {
+    flex: none;
+    width: clamp(120px, 24vw, 180px);
+  }
+
+  figcaption {
+    max-width: 22ch;
+    margin-top: 0;
+  }
+}

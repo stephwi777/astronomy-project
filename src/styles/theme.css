@@ -1,0 +1,77 @@
+/* COLORS */
+
+:root {
+  --zenith: #0b0d2b;
+  --high: #131744;
+  --horizon: #221c58;
+  --far-hills: #2e2570;
+  --snow: #b8a9ea;
+  --snow-shade: #9f8edc;
+  --ink: #1a1645;
+  --frost: #eef0ff;
+  --mist: #b3b5e0;
+  --teal: #4cc3b0;
+  --bronze: #dba862;
+  --beak: #f5cf4f;
+  --moon: #f6ead0;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Nunito Sans', system-ui, sans-serif;
+
+  --gutter: clamp(20px, 6vw, 96px);
+}
+
+
+
+/* BASE */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+body {
+  background: var(--zenith);
+  color: var(--frost);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+}
+
+a {
+  color: inherit;
+}
+
+ul, ol {
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid var(--beak);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

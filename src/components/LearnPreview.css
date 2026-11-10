@@ -1,0 +1,50 @@
+/* LEARN PREVIEW */
+
+#learn {
+  padding-top: 72px;
+  padding-bottom: 72px;
+  background: var(--snow-shade);
+}
+
+#learn .inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+#learn .action {
+  background: var(--ink);
+  color: var(--snow);
+}
+
+
+
+/* CONSTELLATION */
+
+.constellation {
+  padding: 32px;
+  border-radius: 32px;
+  background: var(--ink);
+  color: var(--frost);
+}
+
+.constellation svg {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+
+
+/* SMALL SCREENS */
+
+@media (max-width: 860px) {
+  #learn .inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .constellation {
+    order: 2;
+  }
+}

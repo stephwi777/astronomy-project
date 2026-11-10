@@ -1,0 +1,56 @@
+/* CALENDAR PREVIEW */
+
+.horizon {
+  background: var(--high);
+}
+
+#calendar {
+  padding-top: 24px;
+  padding-bottom: 48px;
+  background: var(--horizon);
+}
+
+#calendar h2 {
+  color: var(--bronze);
+}
+
+#calendar .action {
+  background: var(--bronze);
+  color: var(--ink);
+}
+
+
+
+/* EVENTS */
+
+.events {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+  margin-bottom: 36px;
+}
+
+.events li::before {
+  content: '';
+  display: block;
+  height: 6px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  background: linear-gradient(to right, var(--bronze) 18px, var(--far-hills) 18px);
+}
+
+.events time {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+}
+
+.events p {
+  color: var(--mist);
+}
+
+.events strong {
+  display: block;
+  color: var(--frost);
+  font-weight: 600;
+}

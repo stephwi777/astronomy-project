@@ -1,7 +1,11 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
-// https://vite.dev/config/
+
+
+// CONFIG
+
 export default defineConfig({
+  base: '/astronomy-project/',
   plugins: [react()],
 })
