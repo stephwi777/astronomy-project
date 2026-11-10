@@ -36,7 +36,7 @@ function Header() {
                 <circle cx="28.5" cy="33" r="0.9" />
               </g>
 
-              <path d="M33.5 19.5 L40 16.2 L34 23 Z" fill="var(--beak)" stroke="var(--beak)" strokeLinejoin="round" />
+              <path d="M33.4 19.9 L40.6 17.3 L33.8 22.1 Z" fill="var(--beak)" stroke="var(--beak)" strokeWidth="0.6" strokeLinejoin="round" />
               <circle cx="29.6" cy="19.8" r="1.5" fill="var(--frost)" />
             </g>
 
