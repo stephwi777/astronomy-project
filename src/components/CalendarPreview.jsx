@@ -1,4 +1,5 @@
 import useInView from '../hooks/useInView.js'
+import Twinkle from './Twinkle.jsx'
 import './CalendarPreview.css'
 
 
@@ -53,7 +54,10 @@ function CalendarPreview() {
 
               return (
                 <li key={event.date} style={{ '--fill': Math.max(0.06, 1 - days / 30), '--i': i }}>
-                  <span className="countdown" aria-hidden="true"><span></span></span>
+                  <span className="countdown" aria-hidden="true">
+                    <span></span>
+                    <Twinkle at={Math.max(0.06, 1 - days / 30)} delay={`${0.9 + i * 0.15}s`} />
+                  </span>
                   <p className="soon">{describe(days)}</p>
                   <time dateTime={event.date}>{event.label}</time>
                   <p>

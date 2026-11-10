@@ -1,0 +1,54 @@
+/* TWINKLE */
+
+.twinkle {
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  fill: var(--moon);
+  opacity: 0;
+  translate: -50% -50%;
+  pointer-events: none;
+}
+
+.shown .twinkle {
+  animation: land 0.9s ease-out forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes land {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-90deg);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.2) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(90deg);
+  }
+}
+
+
+
+/* SHIMMER */
+
+@keyframes shimmer {
+  from {
+    background-position: 150% 0;
+  }
+  to {
+    background-position: -50% 0;
+  }
+}
+
+
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .twinkle {
+    display: none;
+  }
+}

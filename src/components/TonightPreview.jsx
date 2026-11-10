@@ -1,5 +1,6 @@
 import useInView from '../hooks/useInView.js'
 import Aurora from './Aurora.jsx'
+import Twinkle from './Twinkle.jsx'
 import './TonightPreview.css'
 
 
@@ -51,6 +52,7 @@ function TonightPreview() {
                       style={{ left: `${row.from * 100}%`, right: `${(1 - row.to) * 100}%`, background: row.color, '--i': i }}
                     ></span>
                     <span className="now" style={{ left: `${now.at * 100}%` }}></span>
+                    <Twinkle at={row.to} delay={`${0.8 + i * 0.2}s`} />
                   </div>
                 </li>
               ))}

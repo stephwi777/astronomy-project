@@ -121,6 +121,11 @@ nav a:hover {
   color: var(--ink);
   font-weight: 700;
   font-size: 1rem;
+  transition: scale 0.25s ease-out;
+}
+
+.location:hover {
+  scale: 1.04;
 }
 
 
@@ -215,7 +220,8 @@ nav a:hover {
 /* REDUCED MOTION */
 
 @media (prefers-reduced-motion: reduce) {
-  .header {
+  .header,
+  .location {
     transition: none;
   }
 
