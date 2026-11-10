@@ -5,8 +5,8 @@
 }
 
 #calendar {
-  padding-top: 24px;
-  padding-bottom: 48px;
+  padding-top: 52px;
+  padding-bottom: 36px;
   background: var(--horizon);
 }
 
@@ -84,8 +84,9 @@
 
 /* SMALL SCREENS */
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .events {
+    grid-template-columns: 1fr;
     gap: 4px;
   }
 

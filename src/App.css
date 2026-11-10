@@ -74,6 +74,11 @@ section {
   color: var(--ink);
 }
 
+.snowfield :focus-visible,
+footer :focus-visible {
+  outline-color: var(--ink);
+}
+
 
 
 /* FOOTER */

@@ -6,6 +6,7 @@ import TonightPreview from './components/TonightPreview.jsx'
 import CalendarPreview from './components/CalendarPreview.jsx'
 import MapPreview from './components/MapPreview.jsx'
 import LearnPreview from './components/LearnPreview.jsx'
+import MotionToggle from './components/MotionToggle.jsx'
 import './App.css'
 
 
@@ -43,6 +44,7 @@ function App() {
 
       <footer>
           © 2026 Stephanie Wilson. All rights reserved.
+          <MotionToggle />
           {/* TO DO */}
       </footer>
     </>

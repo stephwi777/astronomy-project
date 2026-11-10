@@ -55,7 +55,9 @@ function Meteors() {
       const wait = count === 0 ? 6000 + Math.random() * 6000 : 20000 + Math.random() * 20000
 
       timer = setTimeout(() => {
-        if (!calm.matches && !document.hidden) {
+        const paused = document.documentElement.classList.contains('still')
+
+        if (!calm.matches && !paused && !document.hidden) {
           count += 1
           setMeteor(makeMeteor(count))
         }

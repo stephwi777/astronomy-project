@@ -3,6 +3,19 @@ import './Header.css'
 
 
 
+// SPARKLES
+
+const sparkles = [
+  { x: '8%', y: '10%', size: '12px', dx: '-7px', dy: '-7px', color: 'var(--beak)' },
+  { x: '42%', y: '0%', size: '9px', dx: '0px', dy: '-9px', color: '#ffe08a' },
+  { x: '88%', y: '8%', size: '13px', dx: '6px', dy: '-8px', color: 'var(--beak)' },
+  { x: '100%', y: '55%', size: '10px', dx: '9px', dy: '0px', color: '#ffe08a' },
+  { x: '68%', y: '100%', size: '9px', dx: '4px', dy: '8px', color: 'var(--beak)' },
+  { x: '14%', y: '92%', size: '11px', dx: '-7px', dy: '7px', color: '#ffe08a' },
+]
+
+
+
 // HEADER
 
 function Header() {
@@ -52,7 +65,28 @@ function Header() {
           <a href="learn">Learn</a>
         </nav>
 
-        <button className="location">Set location</button>
+        <button className="location">
+          Set location
+          <span className="sparkles" aria-hidden="true">
+            {sparkles.map((sparkle, i) => (
+              <svg
+                key={i}
+                viewBox="0 0 14 14"
+                style={{
+                  '--x': sparkle.x,
+                  '--y': sparkle.y,
+                  '--size': sparkle.size,
+                  '--dx': sparkle.dx,
+                  '--dy': sparkle.dy,
+                  '--color': sparkle.color,
+                  '--i': i,
+                }}
+              >
+                <path d="M7 0 Q8 6 14 7 Q8 8 7 14 Q6 8 0 7 Q6 6 7 0 Z" />
+              </svg>
+            ))}
+          </span>
+        </button>
       </div>
     </header>
   )

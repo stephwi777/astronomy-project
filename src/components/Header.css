@@ -112,6 +112,7 @@ nav a:hover {
 /* LOCATION */
 
 .location {
+  position: relative;
   min-height: 44px;
   padding: 10px 22px;
   border: 0;
@@ -120,6 +121,46 @@ nav a:hover {
   color: var(--ink);
   font-weight: 700;
   font-size: 1rem;
+}
+
+
+
+/* SPARKLES */
+
+.sparkles svg {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  fill: var(--color);
+  pointer-events: none;
+  opacity: 0;
+  translate: -50% -50%;
+}
+
+.location:hover .sparkles svg,
+.location:focus-visible .sparkles svg {
+  animation: flourish 1.5s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.22s);
+}
+
+@keyframes flourish {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0) rotate(-90deg);
+  }
+  30% {
+    opacity: 1;
+    transform: translate(calc(var(--dx) * 0.3), calc(var(--dy) * 0.3)) scale(1.1) rotate(0deg);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(calc(var(--dx) * 0.8), calc(var(--dy) * 0.8)) scale(0.85) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) scale(0) rotate(90deg);
+  }
 }
 
 
@@ -176,6 +217,10 @@ nav a:hover {
 @media (prefers-reduced-motion: reduce) {
   .header {
     transition: none;
+  }
+
+  .sparkles svg {
+    animation: none !important;
   }
 
   .logo .bird,

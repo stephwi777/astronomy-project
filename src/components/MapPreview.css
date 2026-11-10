@@ -85,6 +85,10 @@
     grid-template-columns: 1fr;
     gap: 32px;
   }
+
+  .places li {
+    transform: translateY(16px);
+  }
 }
 
 

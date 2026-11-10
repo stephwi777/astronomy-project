@@ -1,0 +1,24 @@
+/* MOTION TOGGLE */
+
+.motion {
+  min-height: 44px;
+  margin-left: 12px;
+  padding: 8px 4px;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font-size: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+
+
+/* PAUSED */
+
+.still *,
+.still *::before,
+.still *::after {
+  animation-play-state: paused !important;
+}
