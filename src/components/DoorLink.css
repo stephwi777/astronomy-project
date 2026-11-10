@@ -1,0 +1,71 @@
+/* DOOR LINK */
+
+.door-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 5px;
+}
+
+.door-link svg {
+  width: 12px;
+  fill: currentColor;
+  transition: rotate 0.4s ease-out;
+}
+
+.door-link:hover svg {
+  rotate: 90deg;
+}
+
+
+
+/* DOOR */
+
+.door {
+  position: relative;
+  transition: translate 0.25s ease-out;
+}
+
+.door .door-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.door:hover {
+  translate: 0 -3px;
+}
+
+.door:hover .door-link svg {
+  rotate: 90deg;
+}
+
+.door .door-link:focus-visible {
+  outline: none;
+}
+
+.door .door-link:focus-visible::after {
+  outline: 3px solid var(--beak);
+  outline-offset: 6px;
+  border-radius: 24px;
+}
+
+.snowfield .door .door-link:focus-visible::after {
+  outline-color: var(--ink);
+}
+
+
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .door,
+  .door-link svg {
+    transition: none;
+  }
+}

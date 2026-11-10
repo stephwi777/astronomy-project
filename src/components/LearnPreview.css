@@ -13,9 +13,8 @@
   align-items: center;
 }
 
-#learn .action {
-  background: var(--ink);
-  color: var(--snow);
+#learn .door-link {
+  color: var(--ink);
 }
 
 

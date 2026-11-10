@@ -1,5 +1,6 @@
 import useInView from '../hooks/useInView.js'
 import Twinkle from './Twinkle.jsx'
+import DoorLink from './DoorLink.jsx'
 import './CalendarPreview.css'
 
 
@@ -48,28 +49,30 @@ function CalendarPreview() {
           <h2>Never miss a meteor shower</h2>
           <p className="intro">Eclipses, full moons, meteor showers and planets meeting up, all in one calendar.</p>
 
-          <ol ref={ref} className={inView ? 'events shown' : 'events'}>
-            {events.map((event, i) => {
-              const days = daysUntil(event.date)
+          <div className="door">
+            <ol ref={ref} className={inView ? 'events shown' : 'events'}>
+              {events.map((event, i) => {
+                const days = daysUntil(event.date)
 
-              return (
-                <li key={event.date} style={{ '--fill': Math.max(0.06, 1 - days / 30), '--i': i }}>
-                  <span className="countdown" aria-hidden="true">
-                    <span></span>
-                    <Twinkle at={Math.max(0.06, 1 - days / 30)} delay={`${0.9 + i * 0.15}s`} />
-                  </span>
-                  <p className="soon">{describe(days)}</p>
-                  <time dateTime={event.date}>{event.label}</time>
-                  <p>
-                    <strong>{event.name}</strong>
-                    {event.note}
-                  </p>
-                </li>
-              )
-            })}
-          </ol>
+                return (
+                  <li key={event.date} style={{ '--fill': Math.max(0.06, 1 - days / 30), '--i': i }}>
+                    <span className="countdown" aria-hidden="true">
+                      <span></span>
+                      <Twinkle at={Math.max(0.06, 1 - days / 30)} delay={`${0.9 + i * 0.15}s`} />
+                    </span>
+                    <p className="soon">{describe(days)}</p>
+                    <time dateTime={event.date}>{event.label}</time>
+                    <p>
+                      <strong>{event.name}</strong>
+                      {event.note}
+                    </p>
+                  </li>
+                )
+              })}
+            </ol>
 
-          <a className="action" href="calendar">See the full calendar</a>
+            <DoorLink href="calendar">See every event</DoorLink>
+          </div>
         </div>
       </section>
     </div>

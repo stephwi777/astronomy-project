@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import useInView from '../hooks/useInView.js'
+import DoorLink from './DoorLink.jsx'
 import './LearnPreview.css'
 
 
@@ -56,7 +57,7 @@ function LearnPreview() {
         <div>
           <h2>Learn more</h2>
           <p className="intro">Discover a new constellation each month. Check out NASA's picture of the day and friendly guides for your first nights out.</p>
-          <a className="action" href="learn">Start learning</a>
+          <DoorLink href="learn">Start learning</DoorLink>
         </div>
       </div>
     </section>

@@ -18,9 +18,8 @@
   color: var(--teal);
 }
 
-#when .action {
-  background: var(--teal);
-  color: var(--ink);
+#when .door-link {
+  color: var(--teal);
 }
 
 
@@ -113,11 +112,19 @@
   }
 }
 
+.panel-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 24px;
+  margin-top: 16px;
+}
+
 .now-label {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 24px;
   color: var(--mist);
   font-size: 0.95rem;
 }

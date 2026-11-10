@@ -1,4 +1,5 @@
 import useInView from '../hooks/useInView.js'
+import DoorLink from './DoorLink.jsx'
 import './MapPreview.css'
 
 
@@ -36,20 +37,23 @@ function MapPreview() {
           <div>
             <h2>Find dark skies near you</h2>
             <p className="intro"> Dark sky parks, observatories and planetariums all near you!</p>
-            <a className="action" href="map">Open the map</a>
           </div>
 
-          <ul ref={ref} className={inView ? 'places shown' : 'places'}>
-            {places.map((place, i) => (
-              <li key={place.name} style={{ '--i': i }}>
-                <span>
-                  {place.name}
-                  <small>{place.note}</small>
-                </span>
-                <span className="distance">{place.distance}</span>
-              </li>
-            ))}
-          </ul>
+          <div className="door">
+            <ul ref={ref} className={inView ? 'places shown' : 'places'}>
+              {places.map((place, i) => (
+                <li key={place.name} style={{ '--i': i }}>
+                  <span>
+                    {place.name}
+                    <small>{place.note}</small>
+                  </span>
+                  <span className="distance">{place.distance}</span>
+                </li>
+              ))}
+            </ul>
+
+            <DoorLink href="map">Open the map</DoorLink>
+          </div>
         </div>
       </section>
     </>

@@ -1,6 +1,7 @@
 import useInView from '../hooks/useInView.js'
 import Aurora from './Aurora.jsx'
 import Twinkle from './Twinkle.jsx'
+import DoorLink from './DoorLink.jsx'
 import './TonightPreview.css'
 
 
@@ -35,10 +36,9 @@ function TonightPreview() {
           <div>
             <h2>Know when to look</h2>
             <p className="intro">See tonight hour by hour: when it gets dark, when the Moon sets, which planets are up, and when clouds or auroras roll in.</p>
-            <a className="action" href="tonight">Open tonight's timeline</a>
           </div>
 
-          <div ref={ref} className={inView ? 'preview shown' : 'preview'}>
+          <div ref={ref} className={inView ? 'preview door shown' : 'preview door'}>
             <ul>
               {rows.map((row, i) => (
                 <li key={row.name}>
@@ -58,7 +58,10 @@ function TonightPreview() {
               ))}
             </ul>
 
-            <p className="now-label"><span></span>Now, {now.label}</p>
+            <div className="panel-foot">
+              <p className="now-label"><span></span>Now, {now.label}</p>
+              <DoorLink href="tonight">Open tonight's timeline</DoorLink>
+            </div>
           </div>
         </div>
       </section>
