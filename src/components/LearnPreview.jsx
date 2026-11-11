@@ -57,7 +57,7 @@ function LearnPreview() {
         <div>
           <h2>Learn more</h2>
           <p className="intro">Discover a new constellation each month. Check out NASA's picture of the day and friendly guides for your first nights out.</p>
-          <DoorLink href="learn">Start learning</DoorLink>
+          <DoorLink to="/learn">Start learning</DoorLink>
         </div>
       </div>
     </section>

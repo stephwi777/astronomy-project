@@ -60,7 +60,7 @@ function TonightPreview() {
 
             <div className="panel-foot">
               <p className="now-label"><span></span>Now, {now.label}</p>
-              <DoorLink href="tonight">Open tonight's timeline</DoorLink>
+              <DoorLink to="/tonight">Open tonight's timeline</DoorLink>
             </div>
           </div>
         </div>

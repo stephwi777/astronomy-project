@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link, NavLink } from 'react-router'
 import LogoMark from './LogoMark.jsx'
 import './Header.css'
 
@@ -34,16 +35,16 @@ function Header() {
   return (
     <header className={scrolled ? 'header scrolled' : 'header'}>
       <div className="bar">
-        <a className="logo" href="#">
+        <Link className="logo" to="/">
           <LogoMark />
           Starling
-        </a>
+        </Link>
 
         <nav aria-label="Main">
-          <a href="tonight">Tonight</a>
-          <a href="calendar">Calendar</a>
-          <a href="map">Map</a>
-          <a href="learn">Learn</a>
+          <NavLink to="/tonight">Tonight</NavLink>
+          <NavLink to="/calendar">Calendar</NavLink>
+          <NavLink to="/map">Map</NavLink>
+          <NavLink to="/learn">Learn</NavLink>
         </nav>
 
         <button className="location">

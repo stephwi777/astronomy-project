@@ -1,0 +1,16 @@
+/* PLACEHOLDER */
+
+.placeholder {
+  min-height: 75vh;
+  padding-top: clamp(150px, 18vw, 210px);
+  padding-bottom: 120px;
+}
+
+.placeholder h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--moon);
+}
+
+.placeholder .intro {
+  color: var(--mist);
+}

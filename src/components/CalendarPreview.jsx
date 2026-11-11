@@ -71,7 +71,7 @@ function CalendarPreview() {
               })}
             </ol>
 
-            <DoorLink href="calendar">See every event</DoorLink>
+            <DoorLink to="/calendar">See every event</DoorLink>
           </div>
         </div>
       </section>

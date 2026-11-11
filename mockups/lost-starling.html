@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starling mockup: lost in space</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap" rel="stylesheet">
+
+  <style>
+    /* PALETTE */
+
+    :root {
+      --zenith: #0b0d2b;
+      --high: #131744;
+      --horizon: #221c58;
+      --far-hills: #2e2570;
+      --snow: #b8a9ea;
+      --ink: #1a1645;
+      --frost: #eef0ff;
+      --mist: #b3b5e0;
+      --teal: #4cc3b0;
+      --bronze: #dba862;
+      --beak: #f5cf4f;
+      --moon: #f6ead0;
+
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body: 'Nunito Sans', system-ui, sans-serif;
+
+      --gutter: clamp(20px, 6vw, 96px);
+    }
+
+
+
+    /* BASE */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      background: var(--zenith);
+      color: var(--frost);
+      font-family: var(--font-body);
+      font-size: 1.125rem;
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.1;
+      color: var(--moon);
+    }
+
+
+
+    /* CONCEPT */
+
+    .concept {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(56px, 8vw, 110px) var(--gutter);
+    }
+
+    .concept:nth-child(even) {
+      background: var(--high);
+    }
+
+    .inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      align-items: center;
+      gap: 40px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .concept .label {
+      margin: 0 0 20px;
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .concept p {
+      max-width: 34ch;
+      margin: 16px 0 28px;
+      color: var(--mist);
+      font-size: 1.2rem;
+    }
+
+    .concept a {
+      color: var(--frost);
+      font-weight: 700;
+      text-underline-offset: 5px;
+    }
+
+    .concept svg.art {
+      width: 100%;
+      max-width: 360px;
+      justify-self: center;
+      overflow: visible;
+    }
+
+
+
+    /* STARS */
+
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--frost);
+      animation: twinkle var(--duration) ease-in-out var(--delay) infinite;
+    }
+
+    @keyframes twinkle {
+      50% { opacity: 0.25; }
+    }
+
+
+
+    /* UPSIDE DOWN */
+
+    .tumble {
+      transform-origin: 160px 150px;
+      animation: tumble 8s ease-in-out infinite;
+    }
+
+    @keyframes tumble {
+      0%, 100% { transform: rotate(-10deg) translateY(-6px); }
+      50% { transform: rotate(10deg) translateY(6px); }
+    }
+
+    .question {
+      animation: bob 3s ease-in-out infinite;
+    }
+
+    @keyframes bob {
+      50% { transform: translateY(-8px); }
+    }
+
+
+
+    /* HELMET */
+
+    .drift {
+      transform-origin: 160px 160px;
+      animation: drift 9s ease-in-out infinite;
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translate(-6px, 6px) rotate(-4deg); }
+      50% { transform: translate(6px, -8px) rotate(4deg); }
+    }
+
+    .pupil {
+      animation: look 5s ease-in-out infinite;
+    }
+
+    @keyframes look {
+      0%, 30% { translate: -0.8px 0; }
+      40%, 70% { translate: 0.8px -0.4px; }
+      80%, 100% { translate: -0.8px 0; }
+    }
+
+    .trail use {
+      animation: fade 2.4s ease-in-out infinite;
+    }
+
+    .trail use:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .trail use:nth-child(3) {
+      animation-delay: 0.8s;
+    }
+
+    @keyframes fade {
+      0%, 100% { opacity: 0.15; }
+      50% { opacity: 1; }
+    }
+
+
+
+    /* MOON */
+
+    .breathe {
+      transform-origin: 200px 243px;
+      animation: breathe 4s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      50% { transform: scale(1.035); }
+    }
+
+    .zzz text {
+      opacity: 0;
+      animation: float-up 4.5s ease-out infinite;
+    }
+
+    .zzz text:nth-child(2) {
+      animation-delay: 1.5s;
+    }
+
+    .zzz text:nth-child(3) {
+      animation-delay: 3s;
+    }
+
+    @keyframes float-up {
+      0% { opacity: 0; transform: translate(0, 10px); }
+      25% { opacity: 1; }
+      100% { opacity: 0; transform: translate(14px, -26px); }
+    }
+
+
+
+    /* REDUCED MOTION */
+
+    @media (prefers-reduced-motion: reduce) {
+      *, .zzz text {
+        animation: none !important;
+      }
+
+      .zzz text {
+        opacity: 1;
+      }
+    }
+
+
+
+    /* SMALL SCREENS */
+
+    @media (max-width: 720px) {
+      .inner {
+        grid-template-columns: 1fr;
+      }
+
+      .concept svg.art {
+        order: -1;
+        max-width: 260px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SHARED DRAWINGS -->
+
+  <svg width="0" height="0" style="position: absolute">
+    <defs>
+      <symbol id="bird" viewBox="0 0 48 48" overflow="visible">
+        <path d="M14 31 L5.5 35.5 Q6 38 9 38 L15.5 35 Z" fill="var(--ink)" stroke="var(--ink)" stroke-width="1.5" stroke-linejoin="round" />
+        <circle cx="21" cy="31" r="10" fill="var(--ink)" />
+        <circle cx="27.5" cy="21" r="7" fill="var(--ink)" />
+        <ellipse cx="18.5" cy="31" rx="7" ry="4.6" transform="rotate(-25 18.5 31)" fill="#3d3590" />
+        <g fill="var(--snow)">
+          <circle cx="27.5" cy="28.5" r="0.9" />
+          <circle cx="25" cy="32.5" r="0.9" />
+          <circle cx="28.5" cy="33" r="0.9" />
+        </g>
+        <path d="M33.4 19.9 L40.6 17.3 L33.8 22.1 Z" fill="var(--beak)" stroke="var(--beak)" stroke-width="0.6" stroke-linejoin="round" />
+      </symbol>
+
+      <symbol id="sparkle" viewBox="0 0 14 14">
+        <path d="M7 0 Q8 6 14 7 Q8 8 7 14 Q6 8 0 7 Q6 6 7 0 Z" />
+      </symbol>
+
+      <filter id="outline" x="-20%" y="-20%" width="140%" height="140%">
+        <feMorphology in="SourceAlpha" operator="dilate" radius="3" result="grown" />
+        <feFlood flood-color="#2e2570" />
+        <feComposite in2="grown" operator="in" />
+        <feMerge>
+          <feMergeNode />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+
+      <radialGradient id="moon-glow">
+        <stop offset="40%" stop-color="#f6ead0" stop-opacity="0.2" />
+        <stop offset="100%" stop-color="#f6ead0" stop-opacity="0" />
+      </radialGradient>
+
+      <mask id="crescent">
+        <circle cx="170" cy="180" r="100" fill="white" />
+        <circle cx="205" cy="150" r="92" fill="black" />
+      </mask>
+    </defs>
+  </svg>
+
+
+
+  <!-- CONCEPT 1: UPSIDE DOWN -->
+
+  <section class="concept">
+    <div class="inner">
+      <div>
+        <p class="label">Concept 1: Upside down</p>
+        <h1>Lost in space</h1>
+        <p>Even our starling got turned around. We couldn't find that page!</p>
+        <a href="#">Back to the main page</a>
+      </div>
+
+      <svg class="art" viewBox="0 0 320 320" role="img" aria-label="A confused starling floating upside down">
+        <text class="question" x="232" y="72" fill="var(--beak)" font-family="Fraunces, serif" font-weight="600" font-size="64">?</text>
+
+        <g class="tumble">
+          <g filter="url(#outline)">
+            <g transform="translate(160 150) rotate(165) scale(3.6) translate(-23 -28)">
+              <use href="#bird" width="48" height="48" />
+              <circle cx="29.6" cy="19.8" r="2.2" fill="var(--frost)" />
+              <circle cx="29.9" cy="20.6" r="1" fill="var(--ink)" />
+            </g>
+          </g>
+
+          <g transform="translate(159 214)" fill="var(--beak)">
+            <use href="#sparkle" x="-6" y="-6" width="12" height="12">
+              <animateMotion path="M-30,0 a30,9 0 1,0 60,0 a30,9 0 1,0 -60,0" dur="2.4s" repeatCount="indefinite" />
+            </use>
+            <use href="#sparkle" x="-5" y="-5" width="10" height="10">
+              <animateMotion path="M-30,0 a30,9 0 1,0 60,0 a30,9 0 1,0 -60,0" dur="2.4s" begin="-0.8s" repeatCount="indefinite" />
+            </use>
+            <use href="#sparkle" x="-5" y="-5" width="10" height="10">
+              <animateMotion path="M-30,0 a30,9 0 1,0 60,0 a30,9 0 1,0 -60,0" dur="2.4s" begin="-1.6s" repeatCount="indefinite" />
+            </use>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+
+
+  <!-- CONCEPT 2: SPACE HELMET -->
+
+  <section class="concept">
+    <div class="inner">
+      <div>
+        <p class="label">Concept 2: Space helmet</p>
+        <h1>Lost in space</h1>
+        <p>Our starling searched the whole sky, but that page isn't out here.</p>
+        <a href="#">Back to the main page</a>
+      </div>
+
+      <svg class="art" viewBox="0 0 320 320" role="img" aria-label="A starling in a round space helmet, drifting and looking around">
+        <g class="trail" fill="var(--beak)">
+          <use href="#sparkle" x="62" y="238" width="16" height="16" />
+          <use href="#sparkle" x="40" y="264" width="11" height="11" />
+          <use href="#sparkle" x="22" y="286" width="7" height="7" />
+        </g>
+
+        <g class="drift">
+          <circle cx="160" cy="160" r="88" fill="var(--far-hills)" />
+
+          <g transform="translate(160 166) rotate(-12) scale(2.6) translate(-23 -28)">
+            <use href="#bird" width="48" height="48" />
+            <circle cx="29.6" cy="19.8" r="2.2" fill="var(--frost)" />
+            <circle class="pupil" cx="29.6" cy="19.6" r="1" fill="var(--ink)" />
+          </g>
+
+          <circle cx="160" cy="160" r="88" fill="none" stroke="var(--mist)" stroke-opacity="0.55" stroke-width="5" />
+          <path d="M98 122 A70 70 0 0 1 132 90" fill="none" stroke="var(--frost)" stroke-opacity="0.75" stroke-width="7" stroke-linecap="round" />
+        </g>
+      </svg>
+    </div>
+  </section>
+
+
+
+  <!-- CONCEPT 3: ASLEEP ON THE MOON -->
+
+  <section class="concept">
+    <div class="inner">
+      <div>
+        <p class="label">Concept 3: Asleep on the moon</p>
+        <h1>Lost in space</h1>
+        <p>Shh, there's nothing here but a sleepy starling. That page doesn't exist.</p>
+        <a href="#">Back to the main page</a>
+      </div>
+
+      <svg class="art" viewBox="0 0 320 320" role="img" aria-label="A starling asleep in the curve of a crescent moon">
+        <circle cx="170" cy="180" r="150" fill="url(#moon-glow)" />
+        <circle cx="170" cy="180" r="100" fill="var(--moon)" mask="url(#crescent)" />
+
+        <g filter="url(#outline)">
+          <g class="breathe">
+            <g transform="translate(200 243) scale(1.7) translate(-21 -41)">
+              <use href="#bird" width="48" height="48" />
+              <path d="M28 19.6 Q29.6 21.4 31.2 19.6" fill="none" stroke="var(--frost)" stroke-width="0.9" stroke-linecap="round" />
+            </g>
+          </g>
+        </g>
+
+        <g class="zzz" fill="var(--mist)" font-family="Fraunces, serif" font-weight="600">
+          <text x="238" y="186" font-size="16">z</text>
+          <text x="252" y="164" font-size="22">z</text>
+          <text x="268" y="138" font-size="28">z</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+
+
+  <!-- SCRIPT -->
+
+  <script>
+    document.querySelectorAll('.concept').forEach(concept => {
+      for (let i = 0; i < 50; i++) {
+        const star = document.createElement('span')
+        const size = Math.random() * 2 + 1
+        star.className = 'star'
+        star.style.top = Math.random() * 100 + '%'
+        star.style.left = Math.random() * 100 + '%'
+        star.style.width = size + 'px'
+        star.style.height = size + 'px'
+        star.style.setProperty('--duration', Math.random() * 4 + 4 + 's')
+        star.style.setProperty('--delay', Math.random() * 6 + 's')
+        concept.prepend(star)
+      }
+    })
+
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('svg').forEach(svg => svg.pauseAnimations())
+    }
+  </script>
+</body>
+</html>

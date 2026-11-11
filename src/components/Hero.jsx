@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import './Hero.css'
 
 
@@ -13,7 +14,7 @@ function Hero() {
           <p className="lede">Starling shows you what’s up there, right where you are. Just look up, no telescope needed.</p>
 
           <div className="actions">
-            <a className="action" href="tonight">See tonight's sky</a>
+            <Link className="action" to="/tonight">See tonight's sky</Link>
             <a className="more" href="#when">How Starling helps</a>
           </div>
         </div>

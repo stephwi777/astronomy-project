@@ -6,6 +6,6 @@ import { defineConfig } from 'vite'
 // CONFIG
 
 export default defineConfig({
-  base: '/astronomy-project/',
+  base: '/starling/',
   plugins: [react()],
 })

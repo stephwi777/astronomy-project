@@ -52,7 +52,7 @@ function MapPreview() {
               ))}
             </ul>
 
-            <DoorLink href="map">Open the map</DoorLink>
+            <DoorLink to="/map">Open the map</DoorLink>
           </div>
         </div>
       </section>
