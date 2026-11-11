@@ -10,11 +10,11 @@ function useInView() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
+      if (entry.intersectionRatio >= 0.5) {
         setInView(true)
         observer.disconnect()
       }
-    }, { threshold: 0.35 })
+    }, { threshold: 0.5, rootMargin: '0px 0px -20% 0px' })
 
     observer.observe(ref.current)
 

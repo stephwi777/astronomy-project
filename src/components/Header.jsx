@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import LogoMark from './LogoMark.jsx'
 import './Header.css'
 
 
@@ -6,12 +7,12 @@ import './Header.css'
 // SPARKLES
 
 const sparkles = [
-  { x: '8%', y: '10%', size: '12px', dx: '-7px', dy: '-7px', color: 'var(--beak)' },
-  { x: '42%', y: '0%', size: '9px', dx: '0px', dy: '-9px', color: '#ffe08a' },
-  { x: '88%', y: '8%', size: '13px', dx: '6px', dy: '-8px', color: 'var(--beak)' },
-  { x: '100%', y: '55%', size: '10px', dx: '9px', dy: '0px', color: '#ffe08a' },
-  { x: '68%', y: '100%', size: '9px', dx: '4px', dy: '8px', color: 'var(--beak)' },
-  { x: '14%', y: '92%', size: '11px', dx: '-7px', dy: '7px', color: '#ffe08a' },
+  { x: '9%', y: '-4%', size: '12px', color: 'var(--beak)', delay: '0s', duration: '1.7s' },
+  { x: '46%', y: '-12%', size: '9px', color: '#ffe08a', delay: '0.7s', duration: '2.1s' },
+  { x: '89%', y: '0%', size: '13px', color: 'var(--beak)', delay: '0.25s', duration: '1.9s' },
+  { x: '101%', y: '52%', size: '10px', color: '#ffe08a', delay: '1.1s', duration: '1.6s' },
+  { x: '72%', y: '106%', size: '9px', color: 'var(--beak)', delay: '0.45s', duration: '2s' },
+  { x: '18%', y: '102%', size: '11px', color: '#ffe08a', delay: '0.9s', duration: '1.8s' },
 ]
 
 
@@ -34,27 +35,7 @@ function Header() {
     <header className={scrolled ? 'header scrolled' : 'header'}>
       <div className="bar">
         <a className="logo" href="#">
-          <svg viewBox="0 0 48 48" aria-hidden="true">
-            <circle cx="24" cy="26" r="20" fill="var(--far-hills)" />
-
-            <g className="bird">
-              <path d="M14 31 L5.5 35.5 Q6 38 9 38 L15.5 35 Z" fill="var(--ink)" stroke="var(--ink)" strokeWidth="1.5" strokeLinejoin="round" />
-              <circle cx="21" cy="31" r="10" fill="var(--ink)" />
-              <circle cx="27.5" cy="21" r="7" fill="var(--ink)" />
-              <ellipse cx="18.5" cy="31" rx="7" ry="4.6" transform="rotate(-25 18.5 31)" fill="#3d3590" />
-
-              <g fill="var(--snow)">
-                <circle cx="27.5" cy="28.5" r="0.9" />
-                <circle cx="25" cy="32.5" r="0.9" />
-                <circle cx="28.5" cy="33" r="0.9" />
-              </g>
-
-              <path d="M33.4 19.9 L40.6 17.3 L33.8 22.1 Z" fill="var(--beak)" stroke="var(--beak)" strokeWidth="0.6" strokeLinejoin="round" />
-              <circle cx="29.6" cy="19.8" r="1.5" fill="var(--frost)" />
-            </g>
-
-            <path className="badge-star" d="M40 1.5 Q41.2 6.8 46.5 8 Q41.2 9.2 40 14.5 Q38.8 9.2 33.5 8 Q38.8 6.8 40 1.5 Z" fill="var(--beak)" />
-          </svg>
+          <LogoMark />
           Starling
         </a>
 
@@ -76,10 +57,9 @@ function Header() {
                   '--x': sparkle.x,
                   '--y': sparkle.y,
                   '--size': sparkle.size,
-                  '--dx': sparkle.dx,
-                  '--dy': sparkle.dy,
                   '--color': sparkle.color,
-                  '--i': i,
+                  '--delay': sparkle.delay,
+                  '--duration': sparkle.duration,
                 }}
               >
                 <path d="M7 0 Q8 6 14 7 Q8 8 7 14 Q6 8 0 7 Q6 6 7 0 Z" />

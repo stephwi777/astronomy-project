@@ -145,26 +145,22 @@ nav a:hover {
 
 .location:hover .sparkles svg,
 .location:focus-visible .sparkles svg {
-  animation: flourish 1.5s ease-in-out infinite;
-  animation-delay: calc(var(--i) * 0.22s);
+  animation: glimmer var(--duration) ease-in-out infinite;
+  animation-delay: var(--delay);
 }
 
-@keyframes flourish {
-  0% {
+@keyframes glimmer {
+  0%, 100% {
     opacity: 0;
-    transform: translate(0, 0) scale(0) rotate(-90deg);
+    transform: scale(0);
   }
   30% {
     opacity: 1;
-    transform: translate(calc(var(--dx) * 0.3), calc(var(--dy) * 0.3)) scale(1.1) rotate(0deg);
+    transform: scale(1.1);
   }
-  70% {
+  60% {
     opacity: 1;
-    transform: translate(calc(var(--dx) * 0.8), calc(var(--dy) * 0.8)) scale(0.85) rotate(45deg);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(var(--dx), var(--dy)) scale(0) rotate(90deg);
+    transform: scale(0.9);
   }
 }
 

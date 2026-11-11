@@ -1,8 +1,8 @@
 /* TONIGHT PREVIEW */
 
 #when {
-  padding-top: 88px;
-  padding-bottom: 88px;
+  padding-top: 132px;
+  padding-bottom: 44px;
   background: var(--high);
   scroll-margin-top: 100px;
 }

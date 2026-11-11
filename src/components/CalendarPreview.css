@@ -1,6 +1,7 @@
 /* CALENDAR PREVIEW */
 
 .horizon {
+  margin-top: -1px;
   background: var(--high);
 }
 
@@ -147,4 +148,12 @@
   .shown .countdown span::after {
     animation: none;
   }
+}
+
+
+
+/* NO HOVER LIFT */
+
+#calendar .door:hover {
+  translate: none;
 }

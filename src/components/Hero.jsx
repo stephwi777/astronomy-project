@@ -10,7 +10,7 @@ function Hero() {
       <div className="inner">
         <div>
           <h1>Meet tonight's sky</h1>
-          <p className="lede">Starling shows you what's up there, right where you are. Traverse the galaxy... No telescope needed.</p>
+          <p className="lede">Starling shows you what’s up there, right where you are. Just look up, no telescope needed.</p>
 
           <div className="actions">
             <a className="action" href="tonight">See tonight's sky</a>

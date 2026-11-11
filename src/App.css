@@ -74,19 +74,7 @@ section {
   color: var(--ink);
 }
 
-.snowfield :focus-visible,
-footer :focus-visible {
+.snowfield :focus-visible {
   outline-color: var(--ink);
 }
 
-
-
-/* FOOTER */
-
-footer {
-  padding: 32px var(--gutter) 48px;
-  background: var(--snow-shade);
-  color: var(--ink);
-  font-size: 0.95rem;
-  text-align: center;
-}

@@ -2,11 +2,10 @@
 
 .motion {
   min-height: 44px;
-  margin-left: 12px;
   padding: 8px 4px;
   border: 0;
   background: none;
-  color: var(--ink);
+  color: var(--snow);
   font-size: inherit;
   font-weight: 700;
   text-decoration: underline;
