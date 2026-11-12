@@ -136,6 +136,20 @@ nav a.active {
   scale: 1.04;
 }
 
+.location.placed {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid var(--far-hills);
+  background: transparent;
+  color: var(--frost);
+}
+
+.location.placed svg {
+  width: 12px;
+  fill: var(--beak);
+}
+
 
 
 /* SPARKLES */
