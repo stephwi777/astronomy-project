@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { PlaceContext } from './usePlace.js'
 import { loadPlace, roundCoordinate, savePlace } from './placeStorage.js'
+import PlaceDialog from '../components/PlaceDialog.jsx'
 
 
 
@@ -30,5 +31,10 @@ export function PlaceProvider({ children }) {
     closePicker: () => setPickerOpen(false),
   }
 
-  return <PlaceContext value={value}>{children}</PlaceContext>
+  return (
+    <PlaceContext value={value}>
+      {children}
+      <PlaceDialog />
+    </PlaceContext>
+  )
 }

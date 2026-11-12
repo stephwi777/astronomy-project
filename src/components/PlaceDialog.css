@@ -1,0 +1,148 @@
+/* WINDOW */
+
+.place-dialog {
+  width: min(420px, 100vw - 32px);
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 2px solid var(--far-hills);
+  border-radius: 18px;
+  background: var(--high);
+  color: var(--frost);
+}
+
+.place-dialog::backdrop {
+  background: rgb(11 13 43 / 0.75);
+}
+
+.place-dialog > div {
+  position: relative;
+  padding: 28px 24px 24px;
+}
+
+.place-dialog h2 {
+  padding-right: 40px;
+  font-size: 1.6rem;
+  color: var(--moon);
+}
+
+.place-dialog p {
+  margin-top: 6px;
+  color: var(--mist);
+  font-size: 1rem;
+}
+
+.place-dialog p:empty {
+  margin: 0;
+}
+
+
+
+/* CLOSE */
+
+.place-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--mist);
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.place-close:hover {
+  color: var(--frost);
+}
+
+
+
+/* CURRENT LOCATION */
+
+.place-use {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 22px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--far-hills);
+  color: var(--frost);
+  font: inherit;
+  font-weight: 700;
+}
+
+.place-use:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+
+
+/* SEARCH */
+
+.place-dialog form {
+  margin-top: 24px;
+}
+
+.place-dialog label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.place-dialog input {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--frost);
+  color: var(--ink);
+  font: inherit;
+  font-size: max(1rem, 1em);
+}
+
+
+
+/* RESULTS */
+
+.place-dialog ul {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 40vh;
+  margin-top: 10px;
+  overflow-y: auto;
+  scrollbar-color: var(--far-hills) transparent;
+  scrollbar-width: thin;
+}
+
+.place-dialog ul button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--frost);
+  font: inherit;
+  text-align: left;
+}
+
+.place-dialog ul button:hover,
+.place-dialog ul button:focus-visible {
+  background: var(--far-hills);
+}
+
+.place-dialog ul button:focus-visible {
+  outline-offset: -3px;
+}
+
+.place-dialog ul span {
+  color: var(--mist);
+  font-size: 0.9rem;
+}
