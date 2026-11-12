@@ -65,3 +65,16 @@ test('blocked storage never throws', () => {
   expect(loadPlace(storage)).toEqual(SAMPLE_PLACE)
   expect(() => savePlace(SAMPLE_PLACE, storage)).not.toThrow()
 })
+
+test('a browser that blocks storage completely still gets the sample', () => {
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'localStorage')
+  Object.defineProperty(globalThis, 'localStorage', { configurable: true, get() { throw new Error('SecurityError') } })
+
+  try {
+    expect(loadPlace()).toEqual(SAMPLE_PLACE)
+    expect(() => savePlace(SAMPLE_PLACE)).not.toThrow()
+  } finally {
+    if (original) Object.defineProperty(globalThis, 'localStorage', original)
+    else delete globalThis.localStorage
+  }
+})

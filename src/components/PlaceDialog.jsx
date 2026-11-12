@@ -92,6 +92,8 @@ function PlaceDialog() {
   }
 
   async function handleDeviceLocation() {
+    if (finding) return
+
     const visit = visitRef.current
     setFinding(true)
     setDeviceMessage('')
@@ -154,7 +156,7 @@ function PlaceDialog() {
               ref={deviceRef}
               className="place-use"
               type="button"
-              disabled={finding}
+              aria-disabled={finding}
               onClick={handleDeviceLocation}
             >
               {finding ? 'Finding you…' : 'Use my current location'}

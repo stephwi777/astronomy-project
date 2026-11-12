@@ -38,9 +38,9 @@ function isPlace(place) {
 
 // STORAGE
 
-export function loadPlace(storage = globalThis.localStorage) {
+export function loadPlace(storage) {
   try {
-    const saved = JSON.parse(storage.getItem(STORAGE_KEY))
+    const saved = JSON.parse((storage ?? globalThis.localStorage).getItem(STORAGE_KEY))
 
     if (saved?.version === VERSION && isPlace(saved.place)) {
       return saved.place
@@ -52,9 +52,9 @@ export function loadPlace(storage = globalThis.localStorage) {
   return SAMPLE_PLACE
 }
 
-export function savePlace(place, storage = globalThis.localStorage) {
+export function savePlace(place, storage) {
   try {
-    storage.setItem(STORAGE_KEY, JSON.stringify({ version: VERSION, place }))
+    (storage ?? globalThis.localStorage).setItem(STORAGE_KEY, JSON.stringify({ version: VERSION, place }))
   } catch {
     return
   }

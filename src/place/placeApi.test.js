@@ -100,6 +100,12 @@ test('device location rounds coordinates and names the town', async () => {
   expect(Object.fromEntries(url.searchParams)).toEqual({ format: 'jsonv2', lat: '39.1', lon: '-94.58', zoom: '10', 'accept-language': 'en' })
 })
 
+test('the name lookup gives up after a time limit', async () => {
+  stubFetch({ address: { city: 'Kansas City', state: 'Missouri', country_code: 'us' } })
+  await findDevicePlace(fakeGeolocation({ latitude: 39.1, longitude: -94.58 }))
+  expect(fetch.mock.calls[0][1]?.signal).toBeInstanceOf(AbortSignal)
+})
+
 test('the name comes from city, town, village, hamlet or county, in that order', async () => {
   stubFetch({ address: { village: 'Parkville', county: 'Platte County', state: 'Missouri', country_code: 'us' } })
   expect((await findDevicePlace(fakeGeolocation({ latitude: 39.19, longitude: -94.68 }))).name).toBe('Parkville')

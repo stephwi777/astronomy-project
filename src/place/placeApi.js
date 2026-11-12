@@ -91,7 +91,7 @@ async function lookupAddress(latitude, longitude) {
   url.search = new URLSearchParams({ format: 'jsonv2', lat: latitude, lon: longitude, zoom: '10', 'accept-language': 'en' })
 
   try {
-    const response = await fetch(url)
+    const response = await fetch(url, { signal: AbortSignal.timeout(5000) })
     if (!response.ok) return {}
     const data = await response.json()
     return data.address ?? {}
