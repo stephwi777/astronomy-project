@@ -5,7 +5,7 @@ import './Contact.css'
 
 
 // CONTACT DETAILS
-//email and form are placeholders, since 
+//email and form are placeholders for now
 
 const EMAIL = 'hello@example.com'
 const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'
@@ -73,6 +73,7 @@ function Contact() {
 
   return (
     <main>
+      <title>Contact | Starling</title>
       <div className="sky">
         <Stars />
 

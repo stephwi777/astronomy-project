@@ -9,6 +9,7 @@ import './Placeholder.css'
 function Placeholder({ title, text = 'This page is still being built. Check back soon.' }) {
   return (
     <main className="sky">
+      <title>{`${title} | Starling`}</title>
       <Stars />
 
       <section className="placeholder">

@@ -107,6 +107,14 @@ nav a:hover {
   color: var(--frost);
 }
 
+nav a.active {
+  color: var(--frost);
+  text-decoration: underline;
+  text-decoration-color: var(--beak);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
+}
+
 
 
 /* LOCATION */

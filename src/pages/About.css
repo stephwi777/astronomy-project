@@ -1,0 +1,92 @@
+/* INTRO */
+
+.about-intro {
+  padding-top: clamp(150px, 18vw, 210px);
+  padding-bottom: 40px;
+}
+
+.about-intro .inner {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-intro h1 {
+  font-size: clamp(2.75rem, 5vw, 4.5rem);
+  color: var(--moon);
+}
+
+.about-intro .lede {
+  max-width: 28ch;
+  margin-top: 20px;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  line-height: 1.4;
+  color: var(--mist);
+}
+
+.about-mark svg {
+  display: block;
+  width: min(100%, 260px);
+  margin: 0 auto;
+}
+
+
+
+/* STORY */
+
+.about-body {
+  padding-bottom: 120px;
+}
+
+.about-body .inner > * {
+  max-width: 680px;
+}
+
+.about-body h2 {
+  margin-top: 56px;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+}
+
+.about-body p {
+  margin-top: 14px;
+  color: var(--mist);
+}
+
+.about-body a {
+  color: var(--frost);
+  font-weight: 700;
+  text-underline-offset: 4px;
+}
+
+.about-body a:hover {
+  color: var(--beak);
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+  color: var(--mist);
+}
+
+
+
+/* SMALL SCREENS */
+
+@media (max-width: 720px) {
+  .about-intro .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .about-mark {
+    order: -1;
+  }
+
+  .about-mark svg {
+    width: 120px;
+    margin: 0;
+  }
+}
